@@ -54,20 +54,23 @@ Bravo no asume valores por defecto, por lo cual hay que configurar de forma expl
 
 Ejemplo de configuración tomado del spec_helper de Bravo:
 
+```ruby
 
-		require 'bravo'
+require 'bravo'
 
-		Bravo.pkey              			 = 'spec/fixtures/certs/pkey'
-		Bravo.cert              			 = 'spec/fixtures/certs/cert.crt'
-		Bravo.cuit              			 = '20287740027'
-		Bravo.sale_point        			 = '0002'
-		Bravo.default_concepto  			 = 'Productos y Servicios'
-		Bravo.default_documento 			 = 'CUIT'
-		Bravo.default_moneda    			 = :peso
-		Bravo.own_iva_cond      			 = :responsable_inscripto
-		Bravo.verbose           			 = 'true'
-		Bravo.openssl_bin       			 = '/usr/local/Cellar/openssl/1.0.1e/bin/openssl'
-		Bravo::AuthData.environment			 = :test
+Bravo.pkey              			 = 'spec/fixtures/certs/pkey'
+Bravo.cert              			 = 'spec/fixtures/certs/cert.crt'
+Bravo.cuit              			 = '20287740027'
+Bravo.sale_point        			 = '0002'
+Bravo.default_concepto  			 = 'Productos y Servicios'
+Bravo.default_documento 			 = 'CUIT'
+Bravo.default_moneda    			 = :peso
+Bravo.own_iva_cond      			 = :responsable_inscripto
+Bravo.verbose           			 = 'true'
+Bravo.openssl_bin       			 = '/usr/local/Cellar/openssl/1.0.1e/bin/openssl'
+Bravo::AuthData.environment		 = :test
+
+```
 
 ### Emisión de comprobantes
 
@@ -89,18 +92,21 @@ Luego de configurar Bravo, autorizamos una factura:
 
 Código de ejemplo para la configuración anterior:
 
+```ruby
 
-		factura = Bravo::Bill.new
+bill = Bravo::Bill.new
 
-		factura.net          = 100.00			# el neto de la factura, total para Consumidor final
-		factura.aliciva_id   = 2			# define la alicuota de iva a utilizar, ver archivo constants.
-		factura.iva_cond     = :consumidor_final	# la condición ante el iva del 	comprador
-		factura.concepto     = 'Servicios'		# concepto de la factura
-		factura.invoice_type = :invoice			# el tipo de comprobante a emitir, en este caso factura.
+bill.net          = 100.00			# el neto de la factura, total para Consumidor final
+bill.aliciva_id   = 2			# define la alicuota de iva a utilizar, ver archivo constants.
+bill.iva_cond     = :consumidor_final	# la condición ante el iva del 	comprador
+bill.concepto     = 'Servicios'		# concepto de la factura
+bill.invoice_type = :invoice			# el tipo de comprobante a emitir, en este caso factura.
 
-		bill.authorize
+bill.authorize
 
-		bill.response.cae				# contiene el cae para este comprobante.
+bill.response.cae				# contiene el cae para este comprobante.
+
+```
 
 ## TODO list
 
