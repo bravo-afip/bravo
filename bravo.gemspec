@@ -13,11 +13,11 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/leanucci/bravo#readme"
   gem.date          = '2011-03-14'
 
-  gem.files         = `git ls-files`.split($/)
-  gem.files.reject! {|f| f.include? 'vcr' }
-  gem.executables   = gem.files.grep(%r{^bin/}).map{|f| File.basename(f) }
+  gem.files         = `git ls-files`.split($RS)
+  gem.files.reject! { |f| f.include? 'vcr' }
+  gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib", "bin"]
+  gem.require_paths = %w[lib bin]
 
   gem.add_runtime_dependency(%q<savon>, ["~> 2.3", ">= 2.3.0"])
   gem.add_runtime_dependency(%q<thor>, ["~> 0.17", ">= 0.17.0"])
