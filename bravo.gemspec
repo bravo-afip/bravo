@@ -20,9 +20,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = %w[lib bin]
 
   gem.add_runtime_dependency(%q<savon>, ["~> 2.3", ">= 2.3.0"])
-  gem.add_runtime_dependency(%q<thor>, ["~> 0.17", ">= 0.17.0"])
   gem.add_runtime_dependency(%q<rack>, ["~> 1.6", ">= 1.6.0"])
   gem.add_runtime_dependency(%q<json>, ["~> 1.8", ">= 1.8.0"])
+  gem.add_runtime_dependency(%{thor}, ["~> 0.19", ">= 0.19.0"])
 
   gem.add_development_dependency(%q<rspec>, ["~> 2.14", ">= 2.14.0"])
   gem.add_development_dependency(%q<rspec-mocks>, ["~> 2.14", ">= 2.14.0"])
