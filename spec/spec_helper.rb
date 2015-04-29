@@ -34,7 +34,7 @@ Bravo.default_concepto  = 'Productos y Servicios'
 Bravo.default_documento = 'CUIT'
 Bravo.default_moneda    = :peso
 Bravo.own_iva_cond      = :responsable_inscripto
-Bravo.logger            = { log: ENV['BRAVO_LOG'] == 'true' }
+Bravo.logger            = { log: ENV['BRAVO_LOG'] == 'true', level: debug }
 Bravo.openssl_bin       = ENV['OPENSSL_PATH']
 Bravo::AuthData.environment         = :test
 
