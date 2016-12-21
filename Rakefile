@@ -31,4 +31,9 @@ task :rmvcr do
   `rm -rf spec/fixtures/vcr_cassettes`
   puts 'Done, moving on.'
 end
+
+desc "Runs tests"
+task travis: [:spec] do
+  `bundle exec rubocop` if defined? Rubocop
+end
 task default: :spec

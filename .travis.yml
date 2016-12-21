@@ -16,8 +16,7 @@ addons:
 after_success:
   - bundle exec codeclimate-test-reporter
 script:
-  - bundle exec rspec
-  - bundle exec rubocop
+  - bundle exec rake travis
 addons:
   code_climate:
     repo_token: d2565426bec84943089cd897d8847bbe11d18912481dac2d16d0b60ff14b0453
