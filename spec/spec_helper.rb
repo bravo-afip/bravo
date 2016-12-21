@@ -8,12 +8,6 @@ if ENV['TRAVIS']
   SimpleCov.start
 end
 
-begin
-  require 'debugger'
-rescue LoadError
-  puts 'debugger not found'
-end
-
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :fakeweb
@@ -34,7 +28,7 @@ Bravo.default_concepto  = 'Productos y Servicios'
 Bravo.default_documento = 'CUIT'
 Bravo.default_moneda    = :peso
 Bravo.own_iva_cond      = :responsable_inscripto
-Bravo.logger            = { log: ENV['BRAVO_LOG'] == 'true', level: debug }
+Bravo.logger            = { log: ENV['BRAVO_LOG'] == 'true', level: :debug }
 Bravo.openssl_bin       = ENV['OPENSSL_PATH']
 Bravo::AuthData.environment         = :test
 
