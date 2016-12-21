@@ -34,6 +34,6 @@ end
 
 desc "Runs tests"
 task travis: [:spec] do
-  `bundle exec rubocop` if defined? Rubocop
+  `bundle exec rubocop` if RbConfig::CONFIG['MAJOR'] != '1'
 end
 task default: :spec
