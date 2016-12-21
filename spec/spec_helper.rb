@@ -3,7 +3,7 @@ require 'bravo'
 require 'rspec'
 require 'vcr'
 
-if ENV['TRAVIS']
+if ENV['GENERATE_COVERAGE'] == 'true'
   require 'simplecov'
   SimpleCov.start
 end
